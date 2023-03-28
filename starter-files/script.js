@@ -6,7 +6,7 @@ const Span = document.getElementById("answer");
 const Input = document.getElementById("input");
 async function fetchAnswer() {
   if (Input.value == "") {
-    return alert("no se puede papu, escribe algo");
+    return alert("Por favor, Escriba algo");
   } else {
     let query = await fetch(API_ENDPOINT);
     let response = await query.json();
