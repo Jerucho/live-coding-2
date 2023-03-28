@@ -1,6 +1,25 @@
 // API
 const API_ENDPOINT = 'https://yesno.wtf/api';
 
+const Button = document.getElementById("button");
+const Span = document.getElementById("answer");
+const Input = document.getElementById("input");
+async function fetchAnswer() {
+  if (Input.value == "") {
+    return alert("no se puede papu, escribe algo");
+  } else {
+    let query = await fetch(API_ENDPOINT);
+    let response = await query.json();
+    Span.innerHTML = response.answer;
+    setTimeout(cleanContent, 5000);
+    return console.log(response);
+  }
+}
+function cleanContent() {
+  Span.innerHTML = " ";
+  Input.value = "";
+}
+Button.addEventListener("click", fetchAnswer);
 /**
  * STEPS:
  *
